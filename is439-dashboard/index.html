@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+
+  <title>Marketing Dashboard</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="dashboard.css" rel="stylesheet">
+
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">AMKHub Marketing</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <!--
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Profile</a></li>
+        </ul>
+      -->
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+          <li><a href="records.html">Records</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Dashboard</h1>
+
+        <div class="row placeholders">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-6 col-md-3">
+                <div class="panel status panel-danger">
+                  <div class="panel-heading">
+                    <h1 class="panel-title text-center">Most Popular Voucher Redeemed</h1>
+                  </div>
+                  <div class="panel-body text-center">
+                    <strong>Uniqlo</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-6 col-md-3">
+                <div class="panel status panel-warning">
+                  <div class="panel-heading">
+                    <h1 class="panel-title text-center">Most Popular Social Media Channel</h1>
+                  </div>
+                  <div class="panel-body text-center">
+                    <strong>Instagram</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6 col-md-3">
+                <div class="panel status panel-success">
+                  <div class="panel-heading">
+                    <h1 class="panel-title text-center">Most Popular Time of Redemption</h1>
+                  </div>
+                  <div class="panel-body text-center">
+                    <strong>10.30pm</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-6">
+                <canvas id="pie-chart" width="800" height="450">
+                <script>
+                  new Chart(document.getElementById("pie-chart"), {
+                    type: 'pie',
+                    data: {
+                      labels: ["Facebook", "Twitter", "Instagram"],
+                      datasets: [{
+                        label: "Promo Code",
+                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f"],
+                        data: [2478, 5267, 734]
+                      }]
+                    },
+                    options: {
+                      title: {
+                        display: true,
+                        text: 'Number of Promo Code By Social Media Channel'
+                      }
+                    }
+                  });
+                </script>
+                </canvas>
+              </div>
+              <div class="col-xs-6">
+                <canvas id="bar-chart-grouped" width="800" height="450">
+                <script>
+                  new Chart(document.getElementById("bar-chart-grouped"), {
+                    type: 'bar',
+                    data: {
+                      labels: ["Zara", "H&M", "Uniqlo", "Starbucks"],
+                      datasets: [
+                        {
+                          label: "Men in age 15-25",
+                          backgroundColor: "#3e95cd",
+                          data: [150,130,100,70]
+                        }, {
+                          label: "Men in age 25-35",
+                          backgroundColor: "#8e5ea2",
+                          data: [200,100,90,50]
+                        }, {
+                          label: "Women in age 15-25",
+                          backgroundColor: "red",
+                          data: [300,250,50,70]
+                        },{
+                          label: "Women in age 25 - 35",
+                          backgroundColor: "blue",
+                          data:[200,150,30,30]
+                        }
+                      ]
+                    },
+                    options: {
+                      title: {
+                        display: true,
+                        text: 'Population growth (millions)'
+                      }
+                    }
+                });
+                </script>
+                </canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="container2">
+            <div class="row2">
+              <canvas id="line-chart" width="800" height="200">
+                <script>
+                  new Chart(document.getElementById("line-chart"), {
+                    type: 'line',
+                    data: {
+                      labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+                      datasets: [{
+                        data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
+                        label: "Africa",
+                        borderColor: "#3e95cd",
+                        fill: false
+                      }, {
+                        data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 5267],
+                        label: "Asia",
+                        borderColor: "#8e5ea2",
+                        fill: false
+                      }, {
+                        data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
+                        label: "Europe",
+                        borderColor: "#3cba9f",
+                        fill: false
+                      }, {
+                        data: [40, 20, 10, 16, 24, 38, 74, 167, 508, 784],
+                        label: "Latin America",
+                        borderColor: "#e8c3b9",
+                        fill: false
+                      }, {
+                        data: [6, 3, 2, 2, 7, 26, 82, 172, 312, 433],
+                        label: "North America",
+                        borderColor: "#c45850",
+                        fill: false
+                      }
+                      ]
+                    },
+                    options: {
+                      title: {
+                        display: true,
+                        text: 'World population per region (in millions)'
+                      }
+                    }
+                  });
+                </script>
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
