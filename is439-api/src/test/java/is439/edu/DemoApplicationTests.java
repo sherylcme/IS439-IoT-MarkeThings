@@ -1,4 +1,4 @@
-package is439.pets;
+package is439.edu;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
